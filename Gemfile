@@ -13,4 +13,6 @@ group :development, :test do
   gem 'rspec'
   gem 'rb-fsevent'
   gem 'terminal-notifier-guard'
+  gem "mongoid", "~> 2.4"
+  gem "bson_ext", "~> 1.5"
 end

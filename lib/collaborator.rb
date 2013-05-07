@@ -11,6 +11,11 @@ class Collaborator < Sinatra::Base
     erb :post_form
   end
 
+  post '/mock-groupname' do
+    erb :post_id1
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
+
