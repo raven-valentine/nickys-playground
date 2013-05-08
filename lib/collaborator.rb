@@ -3,6 +3,8 @@ require 'sinatra/base'
 require 'mongoid'
 #this refers to the mongoid gem
 
+#we can't use git to save out lives!!!
+
   #ENV["RACK_ENV"] = "production"
 
 class Collaborator < Sinatra::Base
