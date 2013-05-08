@@ -18,18 +18,22 @@ class Collaborator < Sinatra::Base
     erb :post_form
   end
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> afa32c2bda2d84a442a923a8e3fde89bd1de1e27
   
   get '/group-timeline' do
     erb :group_timeline
   end 
  
-=======
-
   post '/mock-groupname' do
     erb :post_id1
   end
 
+<<<<<<< HEAD
 >>>>>>> matt/master
+=======
+>>>>>>> afa32c2bda2d84a442a923a8e3fde89bd1de1e27
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
