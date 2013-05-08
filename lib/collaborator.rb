@@ -3,7 +3,7 @@ require 'sinatra/base'
 require 'mongoid'
 #this refers to the mongoid gem
 
-#we can't use git to save lives!!!
+#we can't use git to save our lives!!!
 
   #ENV["RACK_ENV"] = "production"
 
