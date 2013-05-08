@@ -108,6 +108,7 @@ DEPENDENCIES
   guard-rspec
   iconv
   mongoid (~> 2.4)
+  rack-test
   rb-fsevent
   rspec
   sinatra

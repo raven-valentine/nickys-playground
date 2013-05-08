@@ -3,9 +3,6 @@ require 'sinatra/base'
 require 'mongoid'
 #this refers to the mongoid gem
 
-require 'post_message'
-#trying to link to another file with a class within it
-
 class Collaborator < Sinatra::Base
   #this class is a controller
   set :views, File.join(File.dirname(__FILE__), '../views')
@@ -24,6 +21,7 @@ class Collaborator < Sinatra::Base
   end
 
   # start the server if ruby file executed directly
+  # really not sure what this is for (Matt)
   run! if app_file == $0
 end
 
