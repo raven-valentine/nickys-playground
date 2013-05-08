@@ -2,14 +2,20 @@ require 'sinatra/base'
 #this inside the sinatra gem
 require 'mongoid'
 #this refers to the mongoid gem
+class Post
+  include Mongoid::Document
+
+  field :content, type: String
+end
 
 class Collaborator < Sinatra::Base
   #this class is a controller
+  #this is the app too! - because it is inheriting from Sinatra::Base
   set :views, File.join(File.dirname(__FILE__), '../views')
   Mongoid.load!(File.join(File.dirname(__FILE__),"mongoid.yml"))
 
   get '/' do
-    'Hello Collaborator!'
+    'Hey there'
   end
 
   get '/mock-groupname' do
@@ -17,7 +23,7 @@ class Collaborator < Sinatra::Base
   end
 
   post '/mock-groupname' do
-    erb :post_id1
+    erb :post_id1, locals: { :post => Post.create(:content => params['message']) }
   end
 
   # start the server if ruby file executed directly
