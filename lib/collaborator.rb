@@ -1,7 +1,14 @@
 require 'sinatra/base'
+#this inside the sinatra gem
+require 'mongoid'
+#this refers to the mongoid gem
+
+  #ENV["RACK_ENV"] = "production"
 
 class Collaborator < Sinatra::Base
   set :views, File.join(File.dirname(__FILE__), '../views')
+
+  Mongoid.load!(File.join(File.dirname(__FILE__),"mongoid.yml"))
 
   get '/' do
     'Hello Collaborator!'
