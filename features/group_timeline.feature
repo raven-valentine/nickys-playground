@@ -8,7 +8,6 @@ Feature: Have a group timeline
   - A person can see the timline
   - Messages that have been posted are visible
 
-
   Open Questions:
   ===============
   - Could have a maximum number of messages
