@@ -5,6 +5,9 @@ require 'mongoid'
 
   #ENV["RACK_ENV"] = "production"
 
+require_relative 'post'
+require_relative 'group'
+
 class Collaborator < Sinatra::Base
   set :views, File.join(File.dirname(__FILE__), '../views')
 
@@ -18,8 +21,18 @@ class Collaborator < Sinatra::Base
     erb :post_form
   end
 
+  get '/mock-groupname' do
+    erb :post_form
+  end
+
+  get '/list-of-groups' do
+    erb :list_of_groups
+  end
+
   post '/mock-groupname' do
-    erb :post_id1
+    # puts params['message']
+   # Post.create({[:message => params['message']})
+   #s erb :post_id1
   end
 
   # start the server if ruby file executed directly

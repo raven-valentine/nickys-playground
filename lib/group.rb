@@ -1,24 +1,8 @@
-require 'sinatra/base'
 
-class Group < Sinatra::Base
-  include Mongoid::Document
-  set :views, File.join(File.dirname(__FILE__), '../views')
+class Group
 
-  field :group_name, type: String
+	include Mongoid::Document
 
-  get '/' do
-    'Hello Collaborator!'
-  end
+	field :group_name, type: String
 
-  get '/mock-groupname' do
-    erb :post_form
-  end
-
-  get '/list-of-groups' do
-    erb :list_of_groups
-  end
-end
-
-  # start the server if ruby file executed directly
-  run! if app_file == $0
 end
