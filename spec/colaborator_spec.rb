@@ -17,7 +17,6 @@ describe Collaborator do
 
 	it 'post a new message' do
 		Post.should_receive(:create).with(content: 'Hello Collaborators!')
-
 		post '/mock-groupname', {"message"=>"Hello Collaborators!"}
 	end
 end

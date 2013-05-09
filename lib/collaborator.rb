@@ -23,8 +23,10 @@ class Collaborator < Sinatra::Base
   end
 
   post '/mock-groupname' do
-    erb :post_id1, locals: { :post => Post.create(:content => params['message']) }
+    post = Post.create(:content => params['message'])
+    erb :post_id1, locals: { :post => post }
   end
+
 
   # start the server if ruby file executed directly
   # really not sure what this is for (Matt)
