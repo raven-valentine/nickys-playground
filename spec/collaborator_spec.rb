@@ -3,20 +3,19 @@ require 'rspec'
 require 'rack/test'
 
 
-describe Group do
-
+describe Collaborator do
 	include Rack::Test::Methods
 
 	def app
 		Collaborator # creates a new instance of Collaborator and makes it available to the tests
 	end
 
-	it 'has a group called Pandas'
-		
+	it 'returns all the groups in the database' do
+		Group.should_receive(:all)
+
 		get '/list-of-groups'
-		#ßhiking = Group.new
-		Pandas = Group.where(name: "Pandas")
 	end
+ # tells it to only return the group name on the page we are interested in (list of groups)
 	
 	#context 'creating a new post' do
 	#	it 'saves a new post' do
