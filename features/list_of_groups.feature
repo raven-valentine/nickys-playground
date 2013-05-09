@@ -17,7 +17,7 @@ Feature: List all groups
   
   Scenario: Showing all the groups any given user belongs to
     Given the following groups are available:
-    | group name |
+    | group name | 
     | Pandas |
     | April Cohorters |
     When I am on the list of groups page

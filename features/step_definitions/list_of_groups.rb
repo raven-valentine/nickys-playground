@@ -8,6 +8,7 @@ Given(/^the following groups are available:$/) do |group_names|
   	
 end
 
+end
 
 
 

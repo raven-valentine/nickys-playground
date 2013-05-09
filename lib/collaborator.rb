@@ -18,10 +18,12 @@ class Collaborator < Sinatra::Base
 
   get '/mock-groupname' do
     erb :post_form
+    
   end
   
   get '/list-of-groups' do
-    erb :list_of_groups
+
+    erb :list_of_groups, locals: 
   end  
 
   post '/mock-groupname' do
