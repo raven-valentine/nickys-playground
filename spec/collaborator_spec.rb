@@ -1,3 +1,4 @@
+
 require 'group'
 require 'rspec'
 require 'rack/test' # rack is a specification close to the TCP/IP protocol. rack test is a set of testing helpers allowing test of web applications
@@ -15,4 +16,5 @@ describe Group do #describing the Collaborator class
   end
 
 end
+
 

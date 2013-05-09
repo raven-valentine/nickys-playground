@@ -3,5 +3,4 @@ class Group
 
   field :group_name, type: String
  
-
 end
