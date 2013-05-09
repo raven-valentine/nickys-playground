@@ -15,5 +15,12 @@ Feature: Have a group timeline
   - Could reply to a message
 
   Scenario: Viewing the timeline
-    Given I am on the timeline page
-    Then I should see "a list of posts"
+    Given the following posts exist:
+      | post content |
+      | Hey cohorts  |
+      | What's up?   |
+    When I am on the timeline page
+    Then I should see the following posts:
+      | post content |
+      | Hey cohorts  |
+      | What's up?   |

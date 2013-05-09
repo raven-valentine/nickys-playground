@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'mongoid'
-
+gem 'sinatra'
 gem 'iconv'
 gem 'builder', "~>3.0.0"
 gem "mongoid", "~> 2.4"
