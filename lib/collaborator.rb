@@ -16,17 +16,17 @@ class Collaborator < Sinatra::Base
 
   Mongoid.load!(File.join(File.dirname(__FILE__),'mongoid.yml'))
 
-helpers do
-  def current_user
-    User.find(session[:user])
-  rescue Exception
-    nil
+  helpers do
+    def current_user
+      User.find(session[:user])
+    rescue Exception
+      nil
+    end
   end
-end
 
-before '/group*' do
-  redirect '/' unless current_user
-end
+  before '/group*' do
+    redirect '/' unless current_user
+  end
 
 
   # in the original test we wrote puts "FILTERED"
