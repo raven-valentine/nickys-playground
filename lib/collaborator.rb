@@ -94,6 +94,12 @@ class Collaborator < Sinatra::Base
     group = Group.find_or_create_by(url: group_url)
     group.posts.create(:content  => params['message'])
     redirect '/groups/' + group_url
+    # can say post = group.posts.create(:content  => params['message'])
+    # if you put post.to_json it returns name, value pairs
+    # and then type post in terminal and it will bring back all the json from that variable
+    # group.posts.create(:content  => params['message'])
+
+    #redirect '/groups/' + group_url
   end
 
   post '/groups' do ()
