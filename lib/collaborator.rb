@@ -41,7 +41,8 @@ class Collaborator < Sinatra::Base
   end
 
   post '/sign_up' do
-    User.create!(:username => params['username'], :password => params['password'])
+    user = User.create!(:username => params['username'], :password => params['password'])
+    session[:user] = user._id
     redirect '/groups'
   end
 
@@ -92,8 +93,9 @@ class Collaborator < Sinatra::Base
 
   post '/groups/:group_url' do |group_url|
     group = Group.find_or_create_by(url: group_url)
-    group.posts.create(:content  => params['message'])
-    redirect '/groups/' + group_url
+    post = group.posts.create(:content  => params['message'])
+    post.to_json
+    #redirect '/groups/' + group_url
     # can say post = group.posts.create(:content  => params['message'])
     # if you put post.to_json it returns name, value pairs
     # and then type post in terminal and it will bring back all the json from that variable
@@ -112,10 +114,35 @@ class Collaborator < Sinatra::Base
   end
 
   post '/groups/:group_url/delete_post' do  |group_url|
-    posts = Post.where(_id: params['post_id'])
+    posts = Post.find(params['post_id'])
     posts.delete
     redirect '/groups/' + group_url
   end
+
+  post '/groups/:group_url/delete_group' do  |group_url|
+    group = Group.find(params['group_id'])
+    
+    if group.posts.empty?
+      group.delete
+      redirect '/groups'
+    else
+      redirect "/groups/#{group_url}/confirm_delete"
+    end
+  end
+
+  post '/groups/:group_url/delete_confirmed' do  |group_url|
+    group = Group.find(params['group_id'])
+      group.delete
+      redirect '/groups'
+  
+  end
+
+  get '/groups/:group_url/confirm_delete' do |group_url|
+    group = Group.find_or_create_by(group_name: group_url)
+   erb :confirm_delete_group, locals: { :group => group }
+  end
+
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
